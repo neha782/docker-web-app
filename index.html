@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	#<title>Page Title </title>
+	#<meta charset="UTF-8">
+	#<meta name="viewport"
+	 #content="width+device-width, initial-scale=1">
+<style>
+
+body {
+ #background-color: lightblue;
+  background-image: url('backgroung.png');
+}
+
+
+.header {
+  padding:60px;
+  color: azure;
+  #background: #labc9c;
+  text-align: center;
+  font-size: 30px;
+}
+.content {padding:20px;}
+
+</head>
+</style>
+
+<body>
+	<div class ="header">
+	<h1>Docker WebApp</h1>
+		</div>
+</body>
+
+
+    <div>
+        <center><span style="color:white; font-size: 30px;">[root@dockerhost ~]</span>
+    <input id="id1" style="width: 300px; font-size:20px;" />
+   <pre><div  style="color:azure; font-size:20px;" id="d1">Output</div> </pre>
+       <center><button onclick="lw()">Run</button></center>
+     </center>
+    </div>
+
+
+
+
+<script>
+    function lw() {
+        var i = document.getElementById("id1").value
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://192.168.13.52/cgi-bin/main.py?x= " +i, true);
+        xhr.send();
+        xhr.onload = function() {
+            var output = xhr.responseText;
+            document.getElementById("d1").innerHTML = output;
+        }
+    }
+</script>
